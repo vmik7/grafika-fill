@@ -8,8 +8,8 @@ let canvas = document.querySelector(".canvas");
 let ctx = canvas.getContext("2d");
 
 // Растягиваем на весь экран
-canvas.width = vw;
-canvas.height = vh;
+canvas.width = 500;
+canvas.height = 300;
 
 // Установить пикселб в т. (x, y) с прозрачностью c
 let plot = function (x, y, c) { 
@@ -48,6 +48,7 @@ function hexagon(x, y, r) {
         angle += Math.PI / 3;
     }
     ctx.closePath();
+    ctx.strokeStyle = '#eee';
     ctx.stroke();
     ctx.restore();
 }
@@ -72,7 +73,7 @@ function fill(x, y, color) {
 }
 
 // Радиусы шестиугольников
-let R = 50;
+let R = 30;
 let r = Math.sqrt(3) * R / 2;
 
 // Считаем количество шестиугольников, которое поместилось
@@ -98,11 +99,12 @@ for (let i = 0; i < cntY; i++) {
             ctx.moveTo(-R / 2, r);
             ctx.lineTo(-R * 3 / 2, r);
             ctx.closePath();
+            ctx.strokeStyle = '#eee';
             ctx.stroke();
             ctx.restore();
 
-            fill(x - R, y - r / 2, { r: 65, g: 105, b: 225, a: 255 });
-            fill(x - R, y + r / 2, { r: 65, g: 105, b: 225, a: 255 });
+            fill(x - R, y - r / 2, { r: 0, g: 0, b: 0, a: 255 });
+            fill(x - R, y + r / 2, { r: 0, g: 0, b: 0, a: 255 });
         }
     }
 }
